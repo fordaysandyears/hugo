@@ -9,37 +9,23 @@
 </head>
 <body>
 <div class="container">
-{{ partial "header.html" . }}
+<!--{{ partial "header.html" . }} -->
   <main>
     {{ $todayKey := now.Format "2006-01-02" }}
     {{ $found := false }}
 
     {{ range .Site.Pages }}
       {{ if and (eq .Section "days") (and .File (strings.HasPrefix .File.BaseFileName $todayKey)) }}
-        <!--<h2 style="text-align: center; margin-top: 20px;">{{ .Date.Format "January 2, 2006" }}</h2>-->
-<h2 style="text-align: left; margin-top: 20px;">{{ .Date.Format "January 2, 2006" }}</h2>
-<p style="text-align: left; font-style: italic; font-size: 1.0em;">{{ .Title }}</p>
+<p style="text-align: left; font-size: 1.0em;">{{ .Title }}
+<br />
+{{ .Date.Format "January 2, 2006" }}
+</p>
+ <!-- <h2 style="text-align: center; margin-top: 20px;">{{ .Date.Format "January 2, 2006" }}</h2>-->
+<!-- <p style="text-align: left; font-style: italic; font-size: 1.0em;"> {{ .Date.Format "January 2, 2006" }}</p> -->
+
         <div class="entry-content">
           {{ .Content }}
         </div>
-
-       <!-- <hr /> -->
-
-        <!--
-        <div class="page-navigation" style="text-align: center; margin-top: 20px;">
-          {{ with .Prev }}
-            <a href="{{ .RelPermalink }}">&larr; Previous Day</a>
-          {{ else }}
-            <span style="display: inline-block; width: 120px;"></span>
-          {{ end }}
-
-          {{ with .Next }}
-            <a href="{{ .RelPermalink }}" style="margin-left: 20px;">Next Day &rarr;</a>
-          {{ else }}
-            <span style="display: inline-block; width: 120px;"></span>
-          {{ end }}
-        </div>
-        -->
 
         {{ $found = true }}
         {{ break }}
@@ -47,7 +33,7 @@
     {{ end }}
 
     {{ if not $found }}
-      <h2 style="text-align: center;">Entry Not Found</h2>
+      <h3 style="text-align: center;">Entry Not Found</h3>
       <p>No matching entry found for today ({{ $todayKey }}).</p>
       <p>Ensure a file like <code>{{ $todayKey }}-*.md</code> exists in <code>content/days/</code>.</p>
     {{ end }}

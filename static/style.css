@@ -24,14 +24,14 @@ body {
 h1, h2, h3 {
     color: #555; /* Darker grey for headings */
     font-family: 'EB Garamond', serif;
-    margin-top: 1em; /* Space above headings */
+/*  margin-top: 1em;*/ /* Space above headings */
     margin-bottom: 0.5em; /* Space below headings */
     line-height: 1.2;
 }
 
 h1 { font-size: 2em; }
-h2 { font-size: 1.6em; }
-h3 { font-size: 1.3em; }
+h2 { font-size: 1.5em; }
+h3 { font-size: 1.2em; }
 
 hr.gradient {
   height: 1px;
