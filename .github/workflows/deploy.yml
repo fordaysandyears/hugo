@@ -1,0 +1,31 @@
+name: Daily Hugo Build and Deploy
+
+on:
+  schedule:
+    - cron: '1 12 * * *'  # Runs every day at 12:01 UTC
+  workflow_dispatch:      # Allows manual trigger
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+
+      - name: Build site
+        run: hugo --minify
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.GH_TOKEN }}
+          external_repository: fordaysandyears/hugo  # change if your repo name is different
+          publish_dir: ./public
+          publish_branch: gh-pages
+          force_orphan: true  # clean history if desired
