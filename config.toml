@@ -1,4 +1,5 @@
 baseURL = "https://fordaysandyears.world/"
+#baseURL = "https://fordaysandyears.world/"
 languageCode = 'en-us'
 title = 'Church Calendar App' # Replace with your desired site title
 # theme = '' # We are not using a theme yet, explicitly set to empty
