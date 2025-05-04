@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FOR DAYS AND YEARS</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>FOR DAYS AND YEARS</h1>
+    {{ with .Site.Params.subtitle }}
+      <p><sup><i>{{ . }}</i></sup></p>
+    {{ end }}
+  </header>
+
+  <main>
+    {{ $todayKey := now.Format "2006-01-02" }}
+    {{ $found := false }}
+
+    {{ range .Site.Pages }}
+      {{ if and (eq .Section "days") (strings.HasPrefix .File.BaseFileName $todayKey) }}
+        <h2 style="text-align: center; margin-top: 20px;">{{ .Date.Format "January 2, 2006" }}</h2>
+
+        <div class="entry-content">
+          {{ .Content }}
+        </div>
+
+        <hr />
+
+        <!--
+        <div class="page-navigation" style="text-align: center; margin-top: 20px;">
+          {{ with .Prev }}
+            <a href="{{ .RelPermalink }}">&larr; Previous Day</a>
+          {{ else }}
+            <span style="display: inline-block; width: 120px;"></span>
+          {{ end }}
+
+          {{ with .Next }}
+            <a href="{{ .RelPermalink }}" style="margin-left: 20px;">Next Day &rarr;</a>
+          {{ else }}
+            <span style="display: inline-block; width: 120px;"></span>
+          {{ end }}
+        </div>
+        -->
+
+        {{ $found = true }}
+        {{ break }}
+      {{ end }}
+    {{ end }}
+
+    {{ if not $found }}
+      <h2 style="text-align: center;">Entry Not Found</h2>
+      <p>No matching entry found for today ({{ $todayKey }}).</p>
+      <p>Ensure a file like <code>{{ $todayKey }}-*.md</code> exists in <code>content/days/</code>.</p>
+    {{ end }}
+  </main>
+
+  <footer>
+    <br /><br /><br /><br />
+    <hr />
+    <p align="right">
+<a href="about/">about</a>
+    </p>
+  </footer>
+</div>
+</body>
+</html>

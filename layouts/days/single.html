@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{/* Use the page's title (from front matter) for the HTML title tag */}}
+    <title>{{ .Title }} - FOR DAYS AND YEARS</title>
+    {{/* Link to your existing CSS file */}}
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>FOR DAYS AND YEARS</h1>
+            {{/* Optional: Add the subtitle from config.toml params */}}
+            {{ with .Site.Params.subtitle }}
+                <p><sup><i>{{ . }}</i></sup></p>
+            {{ end }}
+        </header>
+
+        <main>
+<!--            {{/* --- Previous/Next Navigation --- */}}
+            {{/* .Prev and .Next get the previous/next page in the current section (content/days) sorted by date */}}
+            <div class="page-navigation" style="text-align: center; margin-bottom: 20px;">
+                {{ with .Prev }}
+                    {{/* Link to the previous page if it exists */}}
+                    <a href="{{ .Permalink }}">&larr; Previous Day</a>
+                {{ else }}
+                    {{/* Optional: Placeholder if no previous page (first day) */}}
+                    <span style="display: inline-block; width: 120px;"></span> {{/* Simple spacing */}}
+                {{ end }}
+                {{ with .Next }}
+                    {{/* Link to the next page if it exists */}}
+                    <a href="{{ .Permalink }}" style="margin-left: 20px;">Next Day &rarr;</a>
+                {{ else }}
+                     {{/* Optional: Placeholder if no next page (last day) */}}
+                     <span style="display: inline-block; width: 120px;"></span> {{/* Simple spacing */}}
+                {{ end }}
+            </div>
+             <hr> {{/* Separator */}}
+
+
+            {{/* --- Display the Full Date in Words --- */}}
+            {{/* .Date accesses the date from the front matter. Format it as "Month Day, Year" */}}
+-->
+<h2 style="text-align: left; margin-top: 20px;">{{ .Date.Format "January 2, 2006" }}</h2>
+<p style="text-align: left; font-style: italic; font-size: 1.0em;">{{ .Title }}</p>
+        <div class="entry-content">
+          {{ .Content }}
+        </div>
+
+             <hr> {{/* Separator */}}
+
+             {{/* --- Previous/Next Navigation (Optional: Repeat at bottom) --- */}}
+             <div class="page-navigation" style="text-align: center; margin-top: 20px;">
+                {{ with .Prev }}
+                    <a href="{{ .Permalink }}">&larr; Previous Day</a>
+                {{ else }}
+                    <span style="display: inline-block; width: 120px;"></span>
+                {{ end }}
+                {{ with .Next }}
+                    <a href="{{ .Permalink }}" style="margin-left: 20px;">Next Day &rarr;</a>
+                {{ else }}
+                     <span style="display: inline-block; width: 120px;"></span>
+                {{ end }}
+            </div>
+
+
+        </main>
+
+        <footer>
+            {{/* Footer content from your example */}}
+            <br /><br /><br /><br />
+            <hr />
+            <p align="right">
+                {{/* Link to your about page */}}
+                <a href="/about/" title="This website is based on the fine book, 'For Days and Years' A Book Containing a Text, Short Reading and Hymn for Every Day in the Church's Year. by H.L. Sidney Lear. Published New York : E.P. Dutton, 1879." class="ssmall">about</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

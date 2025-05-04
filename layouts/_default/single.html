@@ -1,0 +1,23 @@
+<!-- layouts/_default/single.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>{{ .Title }}</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+{{ partial "header.html" . }}
+      <h1>{{ .Title }}</h1>
+    </header>
+    <main>
+
+      {{ .Content }}
+
+{{ partial "footer.html" . }}
+    </main>
+  </div>
+</body>
+</html>

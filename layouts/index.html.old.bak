@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Church Calendar</title>
+    {{/* Link to your CSS file */}}
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>The Church's Year</h1>
+            {{/* Display today's date */}}
+            <h2>{{ now.Format "January 2, 2006" }}</h2> {{/* Example date format */}}
+        </header>
+
+        <main>
+            {{/* Get today's date formatted as "Month Day" e.g., "Apr 18" */}}
+            {{ $todayKey := now.Format "Jan 02" }}
+
+            {{/* Access the data from data/calendar.json */}}
+            {{ $calendarData := .Site.Data.calendar }}
+
+            {{/* Look up today's entry using the date key */}}
+            {{ $todayEntry := index $calendarData $todayKey }}
+
+            {{/* Check if an entry was found for today */}}
+            {{ if $todayEntry }}
+                {{/* Render the Markdown content of the entry to HTML */}}
+                {{ $todayEntry | .Page.RenderString }}
+            {{ else }}
+                {{/* Display a message if no entry is found */}}
+                <h2>Entry Not Found</h2>
+                <p>No calendar entry found for {{ $todayKey }}.</p>
+                <p>(Please ensure the date heading '# {{ $todayKey }}' exists in your calendar.md file and the Python script was run.)</p>
+            {{ end }}
+        </main>
+
+        <footer>
+            {{/* Add navigation or footer content here later */}}
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+baseURL = "https://fordaysandyears.world/"
+languageCode = 'en-us'
+title = 'Church Calendar App' # Replace with your desired site title
+theme = '' # We are not using a theme yet, explicitly set to empty
+buildFuture = true
+publishDir = "public"
+disableKinds = ["taxonomy", "term"]
+canonifyURLs = true
+relativeURLs = false
+
+[params]
+subtitle = 'For signs and for seasons,and for days and years' # Add this line
+
+
+[caches.images]
+[caches]
+defaultMarkdownHandler = 'goldmark'
+    dir = ':cacheDir/images'
+[markup.goldmark.extensions]
+strikethrough = false
+
+[markup.goldmark.extensions.extras]
+delete = { enable = true }
+subscript = { enable = true }
