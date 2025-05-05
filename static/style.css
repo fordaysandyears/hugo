@@ -19,7 +19,9 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     border-radius: 8px; /* Rounded corners */
 }
-
+code {
+    font-size: 08px;
+}
 /* Basic styling for Markdown elements rendered as HTML */
 h1, h2, h3 {
     color: #555; /* Darker grey for headings */
