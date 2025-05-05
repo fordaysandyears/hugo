@@ -1,0 +1,77 @@
+/* Basic styling for the body and a container to center content */
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
+
+body {
+/*    font-family: sans-serif; */
+  font-family: 'Georgia', serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    max-width: 800px; /* Limit line width for readability */
+    margin: 0 auto; /* Center the block horizontally */
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border-radius: 8px; /* Rounded corners */
+}
+
+/* Basic styling for Markdown elements rendered as HTML */
+h1, h2, h3 {
+    color: #555; /* Darker grey for headings */
+    font-family: 'EB Garamond', serif;
+/*  margin-top: 1em;*/ /* Space above headings */
+    margin-bottom: 0.5em; /* Space below headings */
+    line-height: 1.2;
+}
+
+h1 { font-size: 2em; }
+h2 { font-size: 1.5em; }
+h3 { font-size: 1.2em; }
+
+hr.gradient {
+  height: 1px;
+  border: 0;
+  background: linear-gradient(to right, transparent, #000, transparent);
+  margin: 15px 0;
+}
+
+strong {
+    font-weight: bold; /* Ensure bold text looks bold */
+}
+
+em {
+    font-style: italic; /* Ensure italic text looks italic */
+}
+
+p {
+    margin-bottom: 1em; /* Space between paragraphs */
+}
+
+ul, ol {
+    margin-bottom: 1em;
+    padding-left: 20px; /* Indent lists */
+}
+
+li {
+    margin-bottom: 0.5em;
+}
+
+.italic {
+    font-style: italic;
+}
+/* Add more styles for other Markdown elements (blockquote, code, etc.) as needed */
+.sssmall {
+    font-size: 6px.;
+}
+a {
+    text-decoration: none;
+    color: #333;
+}
+a:visited {
+    color: #333;
+}
