@@ -4,10 +4,10 @@ on:
   schedule:
     - cron: '1 12 * * *'  # Runs every day at 12:01 UTC
 
-on:
-  # Runs on pushes targeting the default branch
-  push:
-    branches: ["main"]
+# on:
+#   # Runs on pushes targeting the default branch
+#   push:
+#     branches: ["main"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
