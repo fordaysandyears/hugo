@@ -1,12 +1,16 @@
-name: Daily Hugo Build and Deploy
+name: cron Deploy Hugo site to Pages deploy.yml
 
 on:
-  schedule:
-    - cron: '1 12 * * *'  # Runs every day at 12:01 UTC
-#  workflow_dispatch:      # Allows manual trigger
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+
+  # Schedule to run every day at 12:00 AM
+  schedule:
+    - cron: '0 0 * * *'
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
