@@ -1,6 +1,5 @@
 ---
-title: About For Days and Years
-subtitle: About For Days and Years
+title: About
 date: 2025-01-01
 ---
 
@@ -23,3 +22,5 @@ I think this will eventually become a simple phone app that displays a day by da
 _“For signs and for seasons, and for days and years.”_ : Genesis 1:14
 
 Hosted on @ https://fordaysandyears.github.io/
+
+<p align="left"><a href="/" style="font-size:8px">back</a></p>
