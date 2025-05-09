@@ -23,4 +23,4 @@ _“For signs and for seasons, and for days and years.”_ : Genesis 1:14
 
 Hosted on @ https://fordaysandyears.github.io/
 
-<p align="left"><a href="/" style="font-size:8px">back</a></p>
+[back](https://fordaysandyears.world/)
