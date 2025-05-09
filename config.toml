@@ -31,5 +31,5 @@ subscript = { enable = true }
     weight = 10
   [[menus.main]]
     name = 'about | '
-    pageRef = '/content/about.md'
+    pageRef = 'about.md'
     weight = 20
