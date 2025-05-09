@@ -1,4 +1,16 @@
 <footer>
-  <br /><br /><br /><br />
-   <p align="right"><a href="/about/" style="font-size:8px">about</a></p>
+  <br />
+  <br />
+  <br />
+{{ with site.Menus.main }}
+  <nav class="menu">
+    {{ range . }}
+      {{ if $.IsMenuCurrent .Menu . }}
+        <a class="active" aria-current="page" href="{{ .URL }}">{{ .Name }}</a>
+      {{ else }}
+        <a href="{{ .URL }}">{{ .Name }}</a>
+      {{ end }}
+    {{ end }}
+  </nav>
+{{ end }}
 </footer>

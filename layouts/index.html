@@ -13,41 +13,30 @@
   <main>
     {{ $todayKey := now.Format "2006-01-02" }}
     {{ $found := false }}
-
     {{ range .Site.Pages }}
-      {{ if and (eq .Section "days") (and .File (strings.HasPrefix .File.BaseFileName $todayKey)) }}
+    {{ if and (eq .Section "days") (and .File (strings.HasPrefix .File.BaseFileName $todayKey)) }}
 <p style="text-align: left; font-size: 1.0em;">{{ .Title }}
 <br />
 {{ .Date.Format "January 2, 2006" }}
 </p>
  <!-- <h2 style="text-align: center; margin-top: 20px;">{{ .Date.Format "January 2, 2006" }}</h2>-->
 <!-- <p style="text-align: left; font-style: italic; font-size: 1.0em;"> {{ .Date.Format "January 2, 2006" }}</p> -->
-
         <div class="entry-content">
           {{ .Content }}
         </div>
-
         {{ $found = true }}
         {{ break }}
       {{ end }}
     {{ end }}
-
     {{ if not $found }}
       <h3 style="text-align: center;">Entry Not Found</h3>
       <p>No matching entry found for today ({{ $todayKey }}).</p>
       <p>Ensure a file like <code>{{ $todayKey }}-*.md</code> exists in <code>content/days/</code>.</p>
     {{ end }}
   </main>
-
     <br /><br /><br /><br />
    <!-- <hr /> -->
 {{ partial "footer.html" . }}
-
-<p align="right" style="font-size:8px">
-{{ range .Site.Menus.main }}
-  ...
-{{ end }}
-</p>
 </div>
 </body>
 </html>

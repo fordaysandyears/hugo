@@ -26,10 +26,10 @@ subscript = { enable = true }
 
 [menus]
   [[menus.main]]
-    name = 'Home'
+    name = '| home | '
     pageRef = '/'
     weight = 10
   [[menus.main]]
-    name = 'About'
-    pageRef = '/content'
+    name = 'about | '
+    pageRef = '/content/about.md'
     weight = 20
