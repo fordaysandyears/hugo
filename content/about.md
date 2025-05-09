@@ -22,5 +22,3 @@ I think this will eventually become a simple phone app that displays a day by da
 _“For signs and for seasons, and for days and years.”_ : Genesis 1:14
 
 Hosted on @ https://fordaysandyears.github.io/
-
-[back](https://fordaysandyears.world/)

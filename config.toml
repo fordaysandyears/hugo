@@ -23,3 +23,13 @@ strikethrough = false
 [markup.goldmark.extensions.extras]
 delete = { enable = true }
 subscript = { enable = true }
+
+[menus]
+  [[menus.main]]
+    name = 'Home'
+    pageRef = '/'
+    weight = 10
+  [[menus.main]]
+    name = 'About'
+    pageRef = '/content'
+    weight = 20
